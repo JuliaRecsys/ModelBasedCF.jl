@@ -37,3 +37,23 @@ function objective(model::ImprovedRegularizedSVD, dataset::Persa.Dataset, λ::Fl
 
     return total
 end
+
+function update!(model::ImprovedRegularizedSVD, dataset::Persa.Dataset, γ::Float64, λ::Float64)
+
+    idx = shuffle(1:length(dataset))
+
+    for i = 1:length(dataset)
+        (u, v, r) = dataset[idx[i]]
+
+        e = r - Persa.predict(model, u, v)
+        
+        model.bias_user[u,:] += γ * (e .- λ * model.bias_user[u,:]);
+        model.bias_item[v,:] += γ * (e .- λ * model.bias_item[v,:]);
+
+        P = model.P[u,:]
+        Q = model.Q[v,:]
+
+        model.P[u,:] += γ * (e .* Q .- λ .* P)
+        model.Q[v,:] += γ * (e .* P .- λ .* Q)
+    end
+end
