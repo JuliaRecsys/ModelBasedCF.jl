@@ -1,0 +1,7 @@
+authors = ["Filipe Braida <filipebraida@gmail.com>"]
+name = "ModelBasedCF"
+uuid = "e5e64596-b6ca-11e8-20a9-11eddeb55bda"
+version = "0.1.0"
+
+[deps]
+Persa = "86800b63-3017-5277-aca5-15d7d6a5f2b2"
