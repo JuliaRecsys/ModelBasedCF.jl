@@ -14,4 +14,6 @@ include("irsvd.jl")
 include("rsvd.jl")
 include("train.jl")
 
+include("baseline.jl")
+
 end # module
