@@ -15,5 +15,6 @@ include("rsvd.jl")
 include("train.jl")
 
 include("baseline.jl")
+include("random.jl")
 
 end # module
