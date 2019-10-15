@@ -4,7 +4,7 @@
 
 | **Build Status**                                                                                |
 |:-----------------------------------------------------------------------------------------------:|
-| [![][docs-dev-img]][docs-dev-url] | [![][travis-img]][travis-url] [![][coverage-img]][coverage-url] [![][codecov-img]][codecov-url] |
+| [![][travis-img]][travis-url] [![][coverage-img]][coverage-url] [![][codecov-img]][codecov-url] |
 
 
 ## Installation
