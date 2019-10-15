@@ -1,7 +1,7 @@
-mutable struct RegularizedSVD <: MatrixFactorization
+mutable struct RegularizedSVD{T} <: MatrixFactorization{T}
     P::Array
     Q::Array
-    preference::Persa.Preference
+    preference::Persa.Preference{T}
     users::Int
     items::Int
 end
@@ -23,8 +23,8 @@ function objective(model::RegularizedSVD, dataset::Persa.Dataset, λ::Float64)
     total = 0
 
     for (u, v, r) in dataset
-        total += (r - model[u, v]) ^ 2
-        total += λ * (norm(model.P[u,:]) ^ 2 + norm(model.Q[v,:]) ^ 2)
+        total += (r - model[u, v])^2
+        total += λ * (norm(model.P[u,:])^2 + norm(model.Q[v,:])^2)
     end
 
     return total

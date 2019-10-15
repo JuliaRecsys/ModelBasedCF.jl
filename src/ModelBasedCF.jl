@@ -7,7 +7,7 @@ using Statistics
 using LinearAlgebra: norm
 using Random: shuffle
 
-abstract type MatrixFactorization <: Persa.Model
+abstract type MatrixFactorization{T} <: Persa.Model{T}
 end
 
 include("irsvd.jl")

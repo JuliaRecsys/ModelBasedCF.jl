@@ -1,7 +1,7 @@
 using Random
 
-mutable struct RandomModel <: Persa.Model
-    preference::Persa.Preference
+mutable struct RandomModel{T} <: Persa.Model{T}
+    preference::Persa.Preference{T}
     users::Int
     items::Int
 end

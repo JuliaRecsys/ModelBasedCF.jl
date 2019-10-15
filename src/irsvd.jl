@@ -1,10 +1,10 @@
-mutable struct ImprovedRegularizedSVD <: MatrixFactorization
+mutable struct ImprovedRegularizedSVD{T} <: MatrixFactorization{T}
     μ::Float64
     bias_user::Array
     bias_item::Array
     P::Array
     Q::Array
-    preference::Persa.Preference
+    preference::Persa.Preference{T}
     users::Int
     items::Int
 end
@@ -30,9 +30,9 @@ function objective(model::ImprovedRegularizedSVD, dataset::Persa.Dataset, λ::Fl
     total = 0
 
     for (u, v, r) in dataset
-        total += (r - model[u, v]) ^ 2
-        total += λ * (model.bias_user[u] ^ 2 + model.bias_item[v] ^ 2)
-        total += λ * (norm(model.P[u,:]) ^ 2 + norm(model.Q[v,:]) ^ 2)
+        total += (r - model[u, v])^2
+        total += λ * (model.bias_user[u]^2 + model.bias_item[v]^2)
+        total += λ * (norm(model.P[u,:])^2 + norm(model.Q[v,:])^2)
     end
 
     return total
@@ -46,7 +46,7 @@ function update!(model::ImprovedRegularizedSVD, dataset::Persa.Dataset, γ::Floa
         (u, v, r) = dataset[idx[i]]
 
         e = r - Persa.predict(model, u, v)
-        
+
         model.bias_user[u,:] += γ * (e .- λ * model.bias_user[u,:]);
         model.bias_item[v,:] += γ * (e .- λ * model.bias_item[v,:]);
 

@@ -1,8 +1,8 @@
-mutable struct Baseline <: MatrixFactorization
+mutable struct Baseline{T} <: MatrixFactorization{T}
     μ::Float64
     bias_user::Array
     bias_item::Array
-    preference::Persa.Preference
+    preference::Persa.Preference{T}
     users::Int
     items::Int
 end
@@ -23,8 +23,8 @@ function objective(model::Baseline, dataset::Persa.Dataset, λ::Float64)
     total = 0
 
     for (u, v, r) in dataset
-        total += (r - model[u, v]) ^ 2
-        total += λ * (model.bias_user[u] ^ 2 + model.bias_item[v] ^ 2)
+        total += (r - model[u, v])^2
+        total += λ * (model.bias_user[u]^2 + model.bias_item[v]^2)
     end
 
     return total
