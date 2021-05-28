@@ -36,7 +36,7 @@ Regularized SVD    | Koren, Y., Bell, R., & Volinsky, C. (2009). Matrix factoriz
 Improved Regularized SVD   | Koren, Y. (2009). Collaborative filtering with temporal dynamics. Knowledge Discovery and Data Mining {KDD}, 447–456.
 
 
-[ci-img]: https://img.shields.io/github/workflow/status/JuliaRecsys/ModelBasedCF.jl/CI?style=flat-square
+[ci-img]: https://img.shields.io/github/checks-status/JuliaRecsys/ModelBasedCF.jl/master?style=flat-square
 [ci-url]: https://github.com/JuliaRecsys/ModelBasedCF.jl/actions
 
 [codecov-img]: https://img.shields.io/codecov/c/github/JuliaRecsys/ModelBasedCF.jl?style=flat-square
