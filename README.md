@@ -25,7 +25,7 @@ julia> Persa.train!(model, dataset, max_epochs = 10)
 julia> model[1,1]
 ```
 
-## Datasets
+## Models
 
 List of package models:
 
