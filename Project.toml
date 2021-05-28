@@ -1,7 +1,7 @@
 name = "ModelBasedCF"
 uuid = "e5e64596-b6ca-11e8-20a9-11eddeb55bda"
 authors = ["Filipe Braida <filipebraida@gmail.com>"]
-version = "0.1.0"
+version = "0.2.0"
 
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
