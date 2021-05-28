@@ -2,44 +2,44 @@
 
 *Model based algorithms for Collaborative Filtering in Julia*
 
-| **Build Status**                                                                                |
-|:-----------------------------------------------------------------------------------------------:|
-| [![][travis-img]][travis-url] [![][coverage-img]][coverage-url] [![][codecov-img]][codecov-url] |
+[![][ci-img]][ci-url]
+[![][codecov-img]][codecov-url]
 
+**Installation**: at the Julia REPL, `Pkg.add("ModelBasedCF")`
 
-## Installation
+**Reporting Issues and Contributing**: See [CONTRIBUTING.md](CONTRIBUTING.md)
 
-The package can be installed with the Julia package manager.
-From the Julia REPL, type `]` to enter the Pkg REPL mode and run:
+## Example
 
 ```
-pkg> add ModelBasedCF
+julia> using DatasetsCF
+
+julia> dataset = DatasetsCF.MovieLens();
+
+julia> using ModelBasedCF
+
+julia> model = ModelBasedCF.IRSVD(dataset, 10)
+
+julia> Persa.train!(model, dataset, max_epochs = 10)
+
+julia> model[1,1]
 ```
 
-Or, equivalently, via the `Pkg` API:
+## Datasets
 
-```julia
-julia> import Pkg; Pkg.add("ModelBasedCF")
-```
+List of package models:
 
-[contrib-url]: https://juliadocs.github.io/Documenter.jl/latest/man/contributing/
+Models      | Title
+-------------|------------------------------------------------------------------------
+Baseline  | Koren, Y. (2009). Collaborative filtering with temporal dynamics. Knowledge Discovery and Data Mining {KDD}, 447–456.
+Regularized SVD    | Koren, Y., Bell, R., & Volinsky, C. (2009). Matrix factorization techniques for recommender systems. Computer, 42(8), 30–37.
+Improved Regularized SVD   | Koren, Y. (2009). Collaborative filtering with temporal dynamics. Knowledge Discovery and Data Mining {KDD}, 447–456.
 
-[docs-dev-img]: https://img.shields.io/badge/docs-dev-blue.svg
-[docs-dev-url]: https://juliarecsys.github.io/ModelBasedCF.jl/latest
 
-[docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
-[docs-stable-url]: https://juliarecsys.github.io/ModelBasedCF.jl/stable
+[ci-img]: https://img.shields.io/github/checks-status/JuliaRecsys/ModelBasedCF.jl/master?style=flat-square
+[ci-url]: https://github.com/JuliaRecsys/ModelBasedCF.jl/actions
 
-[travis-img]: https://travis-ci.org/JuliaRecsys/ModelBasedCF.jl.svg?branch=master
-[travis-url]: https://travis-ci.org/JuliaRecsys/ModelBasedCF.jl
-
-[appveyor-img]: https://ci.appveyor.com/api/projects/status/xx7nimfpnl1r4gx0?svg=true
-[appveyor-url]: https://ci.appveyor.com/project/JuliaDocs/documenter-jl
-
-[codecov-img]: https://codecov.io/gh/JuliaRecsys/ModelBasedCF.jl/branch/master/graph/badge.svg
+[codecov-img]: https://img.shields.io/codecov/c/github/JuliaRecsys/ModelBasedCF.jl?style=flat-square
 [codecov-url]: https://codecov.io/gh/JuliaRecsys/ModelBasedCF.jl
-
-[coverage-img]: https://coveralls.io/repos/JuliaRecsys/ModelBasedCF.jl/badge.svg?branch=master&service=github
-[coverage-url]: https://coveralls.io/github/JuliaRecsys/ModelBasedCF.jl?branch=master
 
 [issues-url]: https://github.com/JuliaRecsys/ModelBasedCF.jl/issues
