@@ -41,5 +41,3 @@ Improved Regularized SVD   | Koren, Y. (2009). Collaborative filtering with temp
 
 [codecov-img]: https://img.shields.io/codecov/c/github/JuliaRecsys/ModelBasedCF.jl?style=flat-square
 [codecov-url]: https://codecov.io/gh/JuliaRecsys/ModelBasedCF.jl
-
-[issues-url]: https://github.com/JuliaRecsys/ModelBasedCF.jl/issues
